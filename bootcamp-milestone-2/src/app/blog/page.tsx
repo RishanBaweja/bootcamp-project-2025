@@ -5,7 +5,7 @@ export default function BlogPage() {
   return (
     <main>
       <h1>Rishan's Blog Posts!</h1>
-      <div id="blog-container">
+      <div className="blog-container">
         {blogs.map((blog) => (
           <BlogPreview
             key={blog.slug}
