@@ -1,11 +1,12 @@
 import blogs, { Blog } from "@/app/blogData";
 import BlogPreview from "@/components/blogPreview";
+import style from "@/components/blogPreview.module.css";
 
 export default function BlogPage() {
   return (
     <main>
-      <h1>Rishan's Blog Posts!</h1>
-      <div className="blog-container">
+      <h1 className={style.pageTitle}>Rishan's Blog Posts</h1>
+      <div className={style.blogContainer}>
         {blogs.map((blog) => (
           <BlogPreview
             key={blog.slug}

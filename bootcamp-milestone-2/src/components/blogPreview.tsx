@@ -6,8 +6,9 @@ import type { Blog } from "../app/blogData";
 
 export default function BlogPreview(props: Blog) {
   return (
-    <div>
+    <article className={style.card}>
       <h3>{props.title}</h3>
+      <h4 className={style.blogContainerH4}>{props.date}</h4>
       <div>
         <Image
           src={props.image}
@@ -16,7 +17,7 @@ export default function BlogPreview(props: Blog) {
           height={500}
           className="postImg"
         />
-        <p>{props.date}</p>
+
         <Link
           href={`/blog/${props.slug}`}
           aria-label={`Read more: ${props.title}`}
@@ -24,6 +25,6 @@ export default function BlogPreview(props: Blog) {
           Read more →
         </Link>
       </div>
-    </div>
+    </article>
   );
 }
