@@ -1,0 +1,68 @@
+/* CSS for blog container */
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-container p {
+  margin: 0.25rem 0 1rem 0;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.blog-container div {
+  background-color: #000;
+  color: #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.blog-container div:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0);
+}
+
+.blog-container img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.blog-container h4 {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.75rem;
+}
+
+.blog-container p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.blog-container a {
+  display: inline-block;
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.blog-container a:hover {
+  background-color: #ddd;
+  color: #000000;
+}
