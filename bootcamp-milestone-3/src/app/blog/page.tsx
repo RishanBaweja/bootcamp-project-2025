@@ -5,18 +5,17 @@ import Blog from "@/database/blogSchema";
 
 async function getBlogs() {
   await connectDB();
-  const docs = await Blog.find().sort({ date: -1 }).lean(); // plain JS objects (not Mongoose docs)
+  const docs = await Blog.find().sort({ date: -1 }).lean();
 
-  // Convert non-serializable fields
   return docs.map((d) => ({
     ...d,
     _id: d._id.toString(),
     date: d.date?.toISOString(),
-    // if you have nested ObjectIds/dates (e.g. in comments), convert those too:
+
     comments: (d.comments ?? []).map((c: any) => ({
       ...c,
       _id: c._id?.toString(),
-      authorId: c.authorId?.toString?.(), // if present
+      authorId: c.authorId?.toString?.(),
       date: c.date?.toISOString(),
     })),
   }));
