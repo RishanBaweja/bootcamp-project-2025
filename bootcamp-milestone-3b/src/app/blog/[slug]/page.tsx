@@ -1,8 +1,8 @@
 import Image from "next/image";
-import blogs from "@/app/blogData";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import style from "@/components/blogPreview.module.css";
+import Comment from "@/components/comment";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -41,6 +41,11 @@ export default async function BlogPostPage({ params }: Props) {
       <h2 className={style.blogContainerH2}>{blog.date}</h2>
       <Image src={blog.image} alt={blog.imageAlt} width={1200} height={800} />
       <p className={style.blogP}>{blog.description}</p>
+      <div>
+        {blog.comments.map((comment, index) => (
+          <Comment key={index} comment={comment} />
+        ))}
+      </div>
 
       <Link href={"/blog"} className={style.goBack}>
         {" "}

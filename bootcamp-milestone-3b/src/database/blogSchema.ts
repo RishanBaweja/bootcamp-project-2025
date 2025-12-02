@@ -12,6 +12,18 @@ type Blog = {
   comments: Comment[]; // array for comments
 };
 
+export type Comment = {
+  user: string;
+  comment: string;
+  time: Date;
+};
+
+const CommentSchema = new Schema<Comment>({
+  user: { type: String, required: true },
+  comment: { type: String, required: true },
+  time: { type: Date, required: true },
+});
+
 // mongoose schema
 const blogSchema = new Schema<Blog>({
   title: { type: String, required: true },
@@ -21,6 +33,7 @@ const blogSchema = new Schema<Blog>({
   image: { type: String, required: true },
   imageAlt: { type: String, required: true },
   content: { type: String, required: true },
+  comments: [CommentSchema],
 });
 
 // defining the collection and model

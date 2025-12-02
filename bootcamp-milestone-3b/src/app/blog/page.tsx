@@ -23,11 +23,13 @@ async function getBlogs() {
 
 export default async function BlogPage() {
   const blogs = await getBlogs();
-  return (
-    <div className={style.cardsContainer}>
-      {blogs.map((b) => (
-        <BlogPreview key={b._id} {...b} />
-      ))}
-    </div>
-  );
+  if (blogs) {
+    return (
+      <div className={style.cardsContainer}>
+        {blogs.map((b) => (
+          <BlogPreview key={b._id} {...b} />
+        ))}
+      </div>
+    );
+  }
 }
