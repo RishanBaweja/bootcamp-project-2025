@@ -1,0 +1,203 @@
+export const metadata = {
+  title: "Rishan Baweja's Resume",
+  description: "Resume of Rishan Baweja",
+};
+
+export default function ResumePage() {
+  return (
+    <main>
+      <h1 className="page-title">Rishan Baweja&apos;s Resume</h1>
+      <div className="resume">
+        <a
+          className="button resumeDownload"
+          href="/resume.pdf"
+          download="resume.pdf"
+        >
+          Download Resume
+        </a>
+        <section className="section">
+          <h2 className="section-title">Education</h2>
+          <div className="entry">
+            <h3 className="entry-title">
+              California Polytechnic State University - San Luis Obispo
+            </h3>
+            <p className="entry-info">
+              B.S. in Computer Science | GPA: 3.6/4.0 | Sept. 2023 -- June 2027
+            </p>
+          </div>
+          <h2 className="section-title">Experience</h2>
+          <div className="entry">
+            <h3 className="entry-title">
+              Software Developer Intern — Astellent <br />
+            </h3>
+            <p className="entry-info">
+              San Francisco, CA | December 2024 -- September 2025
+            </p>
+            <ul className="entry-description">
+              <li>
+                Developed end-to-end projects for multiple clients, delivering
+                tailored web solutions
+              </li>
+              <li>
+                Designed an online course website to educate designers how to
+                code with AI
+              </li>
+              <li>
+                Collaborated with product managers to refine feature
+                requirements, translating them into technical specifications
+              </li>
+            </ul>
+          </div>
+          <div className="entry">
+            <h3 className="entry-title">
+              Network Researcher — California Polytechnic State University
+            </h3>
+            <p className="entry-info">
+              San Luis Obispo, San Luis Obispo, CA | June 2025 - Aug. 2025
+            </p>
+            <ul className="entry-description">
+              <li>
+                Assessed Apple's Private Relay egress locations to determine how
+                different census tracts affect user privacy
+              </li>
+              <li>
+                Leveraged Pandas to create custom, clean data tables to extract
+                key insights for analysis
+              </li>
+              <li>
+                Analyzed privacy and usability tradeoffs in Multi-Party Relay
+                Systems
+              </li>
+            </ul>
+          </div>
+          <div className="entry">
+            <h3 className="entry-title">Software Researcher</h3>
+            <p className="entry-info">
+              Sonoma State University, Rohnert Park, CA | June 2023 -- Sept.
+              2023
+            </p>
+            <ul className="entry-description">
+              <li>
+                Implemented a real-time React-based frontend to visualize live
+                plant condition data collected via Raspberry Pi's
+              </li>
+              <li>
+                Created a Flask backend with SQLite to store sensor readings for
+                client-server communication
+              </li>
+              <li>Designed eye-appealing UI with smooth transitions in CSS</li>
+            </ul>
+          </div>
+          <h2 className="section-title">Skills</h2>
+          <div className="entry">
+            <h3 className="entry-title"></h3>
+            <p className="entry-info">
+              <strong>Languages</strong>: Java, Python, C, C++, JavaScript,
+              HTML, CSS, SQL (PostgreSQL), RISC-V
+            </p>
+            <p className="entry-info">
+              <strong>Frameworks &amp; Libraries</strong>: React, Node.js,
+              Flask, FastAPI, Tailwind, Pandas, NumPy, Matplotlib
+            </p>
+            <p className="entry-info">
+              <strong>Tools</strong>: Git, VS Code, VIM, IntelliJ, Supabase,
+              TablePlus, Docker
+            </p>
+          </div>
+          <h2 className="section-title">Projects</h2>
+          <div className="entry">
+            <h3 className="entry-title">
+              Gamer Society — Python, Flask, PostgreSQL, Docker
+            </h3>
+            <p className="entry-info">March 2025 -- June 2025</p>
+            <ul className="entry-description">
+              <li>
+                Outlined a video game ranking application with features like
+                personalized feeds and game suggestions
+              </li>
+              <li>
+                Formulated clean, RESTful API enpdoints for complex CRUD
+                operations
+              </li>
+              <li>
+                Improved endpoint efficiency by 30% after stress testing the
+                database with millions of synthetic database rows
+              </li>
+              <li>
+                Ensured concurrency control to ensure data consistency in
+                multi-user database environments
+              </li>
+            </ul>
+          </div>
+          <div className="entry">
+            <h3 className="entry-title">UNIX File System — C, Git</h3>
+            <p className="entry-info">January 2025 -- March 2025</p>
+            <ul className="entry-description">
+              <li>
+                Implemented core UNIX file system functionalities in C,
+                including file creation, directory listing, and navigation
+              </li>
+              <li>
+                Developed support for commands such as <code>uniq</code> and{" "}
+                <code>wc</code>, enabling text processing directly on files
+              </li>
+              <li>
+                Established a custom in-memory data structure to simulate file
+                allocation and directory hierarchy
+              </li>
+            </ul>
+          </div>
+          <div className="entry">
+            <h3 className="entry-title">Coding Club — Python</h3>
+            <p className="entry-info">June 2022 - May 2023</p>
+            <ul className="entry-description">
+              <li>
+                Encouraged elementary and middle school students to code through
+                interactive coding projects I designed
+              </li>
+              <li>
+                Debugged student's code quickly in classNamees of up to 30
+                students
+              </li>
+              <li>
+                Coordinated with various district Superintendents at 3 different
+                schools to set up weekly classNamees
+              </li>
+            </ul>
+          </div>
+          <div className="entry">
+            <h3 className="entry-title">Waste Reducer App — C++, HTML, CSS</h3>
+            <p className="entry-info">June 2022 - Dec. 2022</p>
+            <ul className="entry-description">
+              <li>
+                Started app to help people reduce food waste by planning weekly
+                meals and making smart shopping lists
+              </li>
+              <li>
+                Devised a clean, interactive UI in CSS that encourages user
+                interaction
+              </li>
+              <li>Presented the Waste Reducer App at a TEDx Talk</li>
+            </ul>
+          </div>
+          <h2 className="section-title">Courses</h2>
+          <div className="entry">
+            <h3 className="entry-title">Relevant Coursework</h3>
+            <p className="entry-info">
+              <strong>CS</strong>: Data Structures, Algorithms, Database
+              Systems, Object-Oriented Programming, Systems Programming
+            </p>
+            <p className="entry-info">
+              <strong>Other</strong>: Linear Algebra, Discrete Math,
+              Multivariable Calculus, Statistics, Physics
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <footer className="footer">
+        © 2025 Rishan Baweja&apos;s Personal Website | All Rights Reserved
+      </footer>
+    </main>
+  );
+}

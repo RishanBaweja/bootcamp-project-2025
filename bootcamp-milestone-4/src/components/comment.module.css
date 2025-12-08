@@ -1,0 +1,31 @@
+.comment {
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  background: #f6f7f8;
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
+
+.time {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.text {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
