@@ -4,30 +4,37 @@ import Link from "next/link";
 import style from "@/components/blogPreview.module.css";
 import CommentItem from "@/components/comment";
 import CommentForm from "@/components/commentForm";
+import connectDB from "@/database/database";
+import Blog from "@/database/blogSchema";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
+// Load ONE blog directly from MongoDB
 async function getBlog(slug: string) {
-  try {
-    const res = await fetch(`/api/blog/${slug}`, {
-      cache: "no-store",
-    });
+  await connectDB();
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch blog");
-    }
+  const doc = await Blog.findOne({ slug }).lean();
 
-    return res.json();
-  } catch (err) {
-    console.log(`error: ${err}`);
-    return null;
-  }
+  if (!doc) return null;
+
+  // mirror the shape you use in getBlogs()
+  return {
+    ...doc,
+    _id: doc._id.toString(),
+    date: doc.date?.toISOString(),
+    comments: (doc.comments ?? []).map((c: any) => ({
+      ...c,
+      _id: c._id?.toString(),
+      authorId: c.authorId?.toString?.(),
+      date: c.date?.toISOString(),
+    })),
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug } = await params; // Next 16: params is a Promise
   const blog = await getBlog(slug);
 
   if (!blog) return notFound();
