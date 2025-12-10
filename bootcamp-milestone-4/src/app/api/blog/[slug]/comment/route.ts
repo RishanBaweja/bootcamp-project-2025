@@ -3,7 +3,7 @@ import connectDB from "@/database/database";
 import Blog from "@/database/blogSchema";
 
 type IParams = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function POST(req: NextRequest, context: IParams) {

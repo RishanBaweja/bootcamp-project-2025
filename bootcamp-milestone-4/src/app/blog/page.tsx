@@ -7,7 +7,7 @@ async function getBlogs() {
   await connectDB();
   const docs = await Blog.find().sort({ date: -1 }).lean();
 
-  return docs.map((d) => ({
+  return (docs as any[]).map((d) => ({
     ...d,
     _id: d._id.toString(),
     date: d.date?.toISOString(),
