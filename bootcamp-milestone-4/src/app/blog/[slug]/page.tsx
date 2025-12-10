@@ -2,7 +2,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import style from "@/components/blogPreview.module.css";
-import Comment from "@/components/comment";
+import CommentItem from "@/components/comment";
+import CommentForm from "@/components/commentForm";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -23,9 +24,6 @@ async function getBlog(slug: string) {
   } catch (err: unknown) {
     console.log(`error: ${err}`);
     return null;
-    // `` are a special way of allowing JS inside a string
-    // Instead of "error: " + err, we can just do the above
-    // it is simular to formated strings in python --> f"{err}"
   }
 }
 
@@ -39,17 +37,31 @@ export default async function BlogPostPage({ params }: Props) {
     <main className="post">
       <h1 className={style.pageTitle}>{blog.title}</h1>
       <h2 className={style.blogContainerH2}>{blog.date}</h2>
+
       <Image src={blog.image} alt={blog.imageAlt} width={1200} height={800} />
+
       <p className={style.blogP}>{blog.description}</p>
-      <div>
-        {blog.comments.map((comment, index) => (
-          <Comment key={index} comment={comment} />
-        ))}
-      </div>
+
+      <section style={{ marginTop: "2rem" }}>
+        <h3 style={{ marginBottom: "0.75rem" }}>Comments</h3>
+
+        <div style={{ marginBottom: "1.5rem" }}>
+          {blog.comments && blog.comments.length > 0 ? (
+            blog.comments.map((comment: any, index: number) => (
+              <CommentItem key={index} comment={comment} />
+            ))
+          ) : (
+            <p style={{ fontStyle: "italic", color: "#666" }}>
+              No comments yet.
+            </p>
+          )}
+        </div>
+
+        <CommentForm slug={slug} />
+      </section>
 
       <Link href={"/blog"} className={style.goBack}>
-        {" "}
-        ← Back to Blog{" "}
+        ← Back to Blog
       </Link>
     </main>
   );
