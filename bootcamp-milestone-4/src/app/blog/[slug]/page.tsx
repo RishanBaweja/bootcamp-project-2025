@@ -19,12 +19,13 @@ async function getBlog(slug: string) {
 
   if (!doc) return null;
 
-  // mirror the shape you use in getBlogs()
+  const d = doc as any; // tell TS what we know is true at runtime
+
   return {
-    ...doc,
-    _id: doc._id.toString(),
-    date: doc.date?.toISOString(),
-    comments: (doc.comments ?? []).map((c: any) => ({
+    ...d,
+    _id: d._id.toString(),
+    date: d.date?.toISOString(),
+    comments: (d.comments ?? []).map((c: any) => ({
       ...c,
       _id: c._id?.toString(),
       authorId: c.authorId?.toString?.(),
